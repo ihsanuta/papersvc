@@ -8,8 +8,6 @@ How to running apps
 4. Write in command line "go run app.go"
 
 List Of Endpoint
-1. v1/register
-2. v1/login
 
 1. POST   /v1/register              
 2. POST   /v1/login                 
