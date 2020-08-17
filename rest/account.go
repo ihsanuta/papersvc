@@ -17,23 +17,23 @@ func (r *Rest) CreateAccount(c *gin.Context) {
 
 	body, err := ioutil.ReadAll(c.Request.Body)
 	if err != nil {
-		r.HttpRespError(c, http.StatusBadRequest, err)
+		r.HttpRespError(c, err)
 		return
 	}
 
 	var v entity.ReqAccount
 	if err := json.Unmarshal(body, &v); err != nil {
-		r.HttpRespError(c, http.StatusBadRequest, err)
+		r.HttpRespError(c, err)
 		return
 	}
 
 	account, err = r.Uc.CreateAccount(c, v)
 	if err != nil {
-		r.HttpRespError(c, http.StatusBadRequest, err)
+		r.HttpRespError(c, err)
 		return
 	}
 
-	r.HttpRespSuccess(c, http.StatusCreated, account)
+	r.HttpRespSuccess(c, http.StatusCreated, account, nil)
 }
 
 func (r *Rest) LoginAccount(c *gin.Context) {
@@ -43,21 +43,21 @@ func (r *Rest) LoginAccount(c *gin.Context) {
 
 	body, err := ioutil.ReadAll(c.Request.Body)
 	if err != nil {
-		r.HttpRespError(c, http.StatusBadRequest, err)
+		r.HttpRespError(c, err)
 		return
 	}
 
 	var v entity.ReqAccount
 	if err := json.Unmarshal(body, &v); err != nil {
-		r.HttpRespError(c, http.StatusBadRequest, err)
+		r.HttpRespError(c, err)
 		return
 	}
 
 	token, err = r.Uc.LoginAccount(c, v)
 	if err != nil {
-		r.HttpRespError(c, http.StatusBadRequest, err)
+		r.HttpRespError(c, err)
 		return
 	}
 
-	r.HttpRespSuccess(c, http.StatusOK, token)
+	r.HttpRespSuccess(c, http.StatusOK, token, nil)
 }

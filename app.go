@@ -26,7 +26,7 @@ func main() {
 
 	// Financial Account
 	router.POST("/v1/account", auth, r.CreateFinancialAcc)
-	router.GET("/v1/account")
+	router.GET("/v1/account", auth, r.GetFinancialAcc)
 	router.GET("/v1/account/:id", auth, r.GetFinancialAccByID)
 	router.PUT("/v1/account/:id", auth, r.UpdateFinancialAcc)
 	router.DELETE("/v1/account/:id", auth, r.DeleteFinancialAccByID)

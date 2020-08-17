@@ -15,9 +15,9 @@ type FinancialAccReq struct {
 }
 
 type FinancialAccParam struct {
-	ID     int64    `param:"id" db:"id"`
-	Name   int64    `param:"name" db:"name"`
-	SortBy []string `param:"sort_by" db:"sort_by"`
-	Page   int64    `param:"page" db:"page"`
-	Limit  int64    `param:"limit" db:"limit"`
+	ID     int64  `param:"id" db:"id" form:"id"`
+	Name   string `param:"name" db:"name" form:"name"`
+	SortBy string `param:"sort" db:"sort" form:"sort"`
+	Page   int64  `param:"page" db:"page" form:"page"`
+	Limit  int64  `param:"limit" db:"limit" form:"limit"`
 }

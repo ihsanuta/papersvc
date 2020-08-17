@@ -17,7 +17,7 @@ type Rest struct {
 	Uc usecase.Usecase
 }
 
-func (r *Rest) HttpRespError(c *gin.Context, status int, err error) {
+func (r *Rest) HttpRespError(c *gin.Context, err error) {
 	var meta entity.Meta
 	statusCode, displayError := x.CompileError(err, "ID", false)
 	statusStr := http.StatusText(statusCode)
@@ -31,12 +31,12 @@ func (r *Rest) HttpRespError(c *gin.Context, status int, err error) {
 		Timestamp:  time.Now().Format(time.RFC3339),
 	}
 
-	c.JSON(status, gin.H{
+	c.JSON(statusCode, gin.H{
 		"metadata": meta,
 	})
 }
 
-func (r *Rest) HttpRespSuccess(c *gin.Context, status int, resp interface{}) {
+func (r *Rest) HttpRespSuccess(c *gin.Context, status int, resp interface{}, pagination interface{}) {
 	meta := entity.Meta{
 		Path:       c.Request.RequestURI,
 		StatusCode: status,
@@ -62,6 +62,18 @@ func (r *Rest) HttpRespSuccess(c *gin.Context, status int, resp interface{}) {
 			"metadata":     meta,
 			"financialtrx": &data,
 		})
+	case []entity.FinancialAcc:
+		c.JSON(status, gin.H{
+			"metadata":     meta,
+			"financialacc": &data,
+			"pagination":   &pagination,
+		})
+	case []entity.FinancialTrx:
+		c.JSON(status, gin.H{
+			"metadata":     meta,
+			"financialtrx": &data,
+			"pagination":   &pagination,
+		})
 	case string:
 		c.JSON(status, gin.H{
 			"metadata": meta,
@@ -72,7 +84,7 @@ func (r *Rest) HttpRespSuccess(c *gin.Context, status int, resp interface{}) {
 			"metadata": meta,
 		})
 	default:
-		r.HttpRespError(c, http.StatusInternalServerError, x.NewWithCode(x.CodeHTTPInternalServerError, fmt.Sprintf("cannot cast type of %+v", data)))
+		r.HttpRespError(c, x.NewWithCode(x.CodeHTTPInternalServerError, fmt.Sprintf("cannot cast type of %+v", data)))
 		return
 	}
 }

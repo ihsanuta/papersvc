@@ -46,3 +46,7 @@ func (u *Usecase) UpdateFinancialAcc(c *gin.Context, v entity.FinancialAccReq) (
 func (u *Usecase) DeleteFinancialAcc(c *gin.Context, vid int64) error {
 	return u.Domain.DeleteSQLFinancialACC(c, vid)
 }
+
+func (u *Usecase) GetFinancialAcc(c *gin.Context, p entity.FinancialAccParam) ([]entity.FinancialAcc, entity.Pagination, error) {
+	return u.Domain.GetSQLFinancial(c, p)
+}
