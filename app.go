@@ -19,7 +19,7 @@ func main() {
 
 	// Financial Trx
 	router.POST("/v1/trx", auth, r.CreateFinancialTrx)
-	router.GET("/v1/trx")
+	router.GET("/v1/trx", auth, r.GetFinancialTrx)
 	router.GET("/v1/trx/:id", auth, r.GetFinancialTrxByID)
 	router.PUT("/v1/trx/:id", auth, r.UpdateFinancialTrx)
 	router.DELETE("/v1/trx/:id", auth, r.DeleteFinancialTrxByID)

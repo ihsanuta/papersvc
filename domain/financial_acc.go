@@ -2,7 +2,6 @@ package domain
 
 import (
 	"database/sql"
-	"fmt"
 	"papersvc/entity"
 	"time"
 
@@ -98,7 +97,6 @@ func (d *Domain) GetSQLFinancial(c *gin.Context, param entity.FinancialAccParam)
 	}
 
 	query, queryc, args, sort := qBuilder(param, "is_deleted=0")
-	fmt.Println("SELECT id, name, created_at, updated_at FROM finance_acc " + query)
 	rows, err := DB.Query("SELECT id, name, created_at, updated_at FROM finance_acc "+query, args...)
 	if err != nil {
 		return results, pagination, x.WrapWithCode(err, x.CodeSQLRead, "GetSQLFinancial")

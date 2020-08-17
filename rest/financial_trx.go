@@ -121,3 +121,20 @@ func (r *Rest) DeleteFinancialTrxByID(c *gin.Context) {
 
 	r.HttpRespSuccess(c, http.StatusOK, nil, nil)
 }
+
+func (r *Rest) GetFinancialTrx(c *gin.Context) {
+	var p entity.FinancialTrxParam
+
+	err := c.ShouldBindQuery(&p)
+	if err != nil {
+		r.HttpRespError(c, err)
+	}
+
+	result, pagination, err := r.Uc.GetFinancialTrx(c, p)
+	if err != nil {
+		r.HttpRespError(c, err)
+		return
+	}
+
+	r.HttpRespSuccess(c, http.StatusOK, result, pagination)
+}

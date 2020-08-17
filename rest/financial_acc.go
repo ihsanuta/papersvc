@@ -2,9 +2,7 @@ package rest
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"papersvc/entity"
 	"regexp"
@@ -127,19 +125,13 @@ func (r *Rest) DeleteFinancialAccByID(c *gin.Context) {
 func (r *Rest) GetFinancialAcc(c *gin.Context) {
 	var p entity.FinancialAccParam
 
-	fmt.Printf("PARAM : %v", c.Request.URL.Query())
-
 	err := c.ShouldBindQuery(&p)
 	if err != nil {
-		log.Fatal(err)
 		r.HttpRespError(c, err)
 	}
 
-	fmt.Printf("PARAM RES : %v", p)
-
 	result, pagination, err := r.Uc.GetFinancialAcc(c, p)
 	if err != nil {
-		log.Fatal(err)
 		r.HttpRespError(c, err)
 		return
 	}

@@ -94,3 +94,7 @@ func (u *Usecase) UpdateFinancialTrx(c *gin.Context, v entity.FinancialTrxReq) (
 func (u *Usecase) DeleteFinancialTrx(c *gin.Context, vid int64) error {
 	return u.Domain.DeleteSQLFinancialTrx(c, vid)
 }
+
+func (u *Usecase) GetFinancialTrx(c *gin.Context, param entity.FinancialTrxParam) ([]entity.FinancialTrx, entity.Pagination, error) {
+	return u.Domain.GetSQLFinancialTrx(c, param)
+}
