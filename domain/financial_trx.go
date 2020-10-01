@@ -3,9 +3,10 @@ package domain
 import (
 	"database/sql"
 	"log"
-	"papersvc/entity"
-	x "papersvc/errors"
 	"time"
+
+	"github.com/ihsanuta/papersvc/entity"
+	x "github.com/ihsanuta/papersvc/errors"
 
 	"github.com/gin-gonic/gin"
 )

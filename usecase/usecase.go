@@ -2,8 +2,9 @@ package usecase
 
 import (
 	"database/sql"
-	"papersvc/config"
-	"papersvc/domain"
+
+	"github.com/ihsanuta/papersvc/config"
+	"github.com/ihsanuta/papersvc/domain"
 )
 
 type Usecase struct {

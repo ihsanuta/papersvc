@@ -3,7 +3,8 @@ package main
 import (
 	"fmt"
 	"net/http"
-	"papersvc/rest"
+
+	"github.com/ihsanuta/papersvc/rest"
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"

@@ -3,8 +3,9 @@ package domain
 import (
 	"database/sql"
 	"fmt"
-	"papersvc/config"
 	"reflect"
+
+	"github.com/ihsanuta/papersvc/config"
 
 	_ "github.com/go-sql-driver/mysql"
 )

@@ -2,12 +2,13 @@ package domain
 
 import (
 	"database/sql"
-	"papersvc/entity"
 	"time"
+
+	"github.com/ihsanuta/papersvc/entity"
 
 	"github.com/gin-gonic/gin"
 
-	x "papersvc/errors"
+	x "github.com/ihsanuta/papersvc/errors"
 )
 
 func (d *Domain) CreateSQLFinancialACC(c *gin.Context, v entity.FinancialAcc) (entity.FinancialAcc, error) {

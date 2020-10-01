@@ -4,9 +4,10 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"net/http"
-	"papersvc/entity"
 	"regexp"
 	"strconv"
+
+	"github.com/ihsanuta/papersvc/entity"
 
 	"github.com/gin-gonic/gin"
 )
