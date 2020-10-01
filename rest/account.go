@@ -4,7 +4,8 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"net/http"
-	"papersvc/entity"
+
+	"github.com/ihsanuta/papersvc/entity"
 
 	"github.com/gin-gonic/gin"
 )

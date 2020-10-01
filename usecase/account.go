@@ -1,8 +1,9 @@
 package usecase
 
 import (
-	"papersvc/entity"
 	"time"
+
+	"github.com/ihsanuta/papersvc/entity"
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"

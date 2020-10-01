@@ -3,12 +3,13 @@ package rest
 import (
 	"fmt"
 	"net/http"
-	"papersvc/usecase"
 	"time"
 
-	x "papersvc/errors"
+	"github.com/ihsanuta/papersvc/usecase"
 
-	"papersvc/entity"
+	x "github.com/ihsanuta/papersvc/errors"
+
+	"github.com/ihsanuta/papersvc/entity"
 
 	"github.com/gin-gonic/gin"
 )

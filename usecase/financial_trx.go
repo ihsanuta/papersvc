@@ -1,10 +1,11 @@
 package usecase
 
 import (
-	"papersvc/entity"
 	"time"
 
-	x "papersvc/errors"
+	"github.com/ihsanuta/papersvc/entity"
+
+	x "github.com/ihsanuta/papersvc/errors"
 
 	"github.com/gin-gonic/gin"
 )
