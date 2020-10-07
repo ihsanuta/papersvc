@@ -5,7 +5,7 @@ How to running apps
 1. Clone this project first
 2. Running migration file in folder migration
 3. Enter Clone Folder using command line
-4. Write in command line "go run app.go"
+4. Write in command line "make run"
 5. Register to endpoint POST   /v1/register 
 6. Login to POST   /v1/login 
 7. Put token to header authorization
